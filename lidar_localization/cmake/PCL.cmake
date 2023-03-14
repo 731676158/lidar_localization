@@ -1,4 +1,6 @@
-find_package(PCL 1.7 REQUIRED)
+find_package(PCL 1.10 REQUIRED)
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
 list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4")
 
 include_directories(${PCL_INCLUDE_DIRS})

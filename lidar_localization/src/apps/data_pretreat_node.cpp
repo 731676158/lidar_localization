@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     ros::NodeHandle nh;
 
     std::string cloud_topic;
-    nh.param<std::string>("cloud_topic", cloud_topic, "/synced_cloud");
+    nh.param<std::string>("cloud_topic", cloud_topic, "/velodyne_points");
 
     std::shared_ptr<DataPretreatFlow> data_pretreat_flow_ptr = std::make_shared<DataPretreatFlow>(nh, cloud_topic);
 

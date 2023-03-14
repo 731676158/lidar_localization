@@ -1,4 +1,4 @@
-data_path: ./   # 数据存放路径
+data_path: /home/jeff/codes/lidar_localization/pcds   # 数据存放路径
 
 # 全局地图
 global_map_filter: voxel_filter # 选择全局地图点云滤波方法，目前支持：voxel_filter

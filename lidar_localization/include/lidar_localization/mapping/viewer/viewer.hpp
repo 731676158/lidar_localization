@@ -7,6 +7,7 @@
 #define LIDAR_LOCALIZATION_MAPPING_VIEWER_VIEWER_HPP_
 
 #include <string>
+#include <deque>
 #include <Eigen/Dense>
 #include <yaml-cpp/yaml.h>
 

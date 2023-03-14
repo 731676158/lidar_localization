@@ -1,5 +1,7 @@
 <launch>
     <node pkg="rviz"  type="rviz"  name="rviz"  args="-d $(find lidar_localization)/rviz/mapping.rviz"></node>
+    <node pkg="rosbag" type="play" name="playe" output="screen" args="--clock /media/jeff/PineappleJC/bag_and_pcd/kitti_2011_10_03_drive_0027_synced.bag"/>
+    <!--node pkg="tf" type="static_transform_publisher" name="tf_map_world" args="0 0 0 0 0 0 map world 10" /-->
     <node pkg="lidar_localization"  type="data_pretreat_node"  name="data_pretreat_node"  output="screen"></node>
     <node pkg="lidar_localization"  type="front_end_node"  name="front_end_node"  output="screen"></node>
     <node pkg="lidar_localization"  type="back_end_node"  name="back_end_node"  output="screen"></node>

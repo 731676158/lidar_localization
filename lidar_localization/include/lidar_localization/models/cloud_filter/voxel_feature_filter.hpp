@@ -13,14 +13,14 @@ namespace lidar_localization {
 class VoxelFeatureFilter: public CloudFilterInterface {
   public:
     VoxelFeatureFilter(const YAML::Node& node);
-    VoxelFeatureFilter(float leaf_size_x, float leaf_size_y, float leaf_size_z, std::string str, float sample_ratio);
+    VoxelFeatureFilter(float leaf_size_x, float leaf_size_y, float leaf_size_z, std::string feature_type, float sample_ratio);
 
     bool Filter(const CloudData::CLOUD_PTR& input_cloud_ptr, CloudData::CLOUD_PTR& filtered_cloud_ptr) override;
 
   private:
     bool SetFilterParam(float leaf_size_x, float leaf_size_y, float leaf_size_z);
 
-    bool SetFeatureParam(std::string str, float sample_ratio);
+    bool SetFeatureParam(std::string feature_type, float sample_ratio);
 
   private:
     pcl::VoxelGridFeature<CloudData::POINT> voxel_feature_filter_;

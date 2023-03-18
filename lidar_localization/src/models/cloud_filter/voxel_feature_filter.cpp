@@ -20,27 +20,27 @@ VoxelFeatureFilter::VoxelFeatureFilter(const YAML::Node& node) {
     SetFilterParam(leaf_size_x, leaf_size_y, leaf_size_z);
 }
 
-VoxelFeatureFilter::VoxelFeatureFilter(float leaf_size_x, float leaf_size_y, float leaf_size_z, std::string str, float sample_ratio) {
+VoxelFeatureFilter::VoxelFeatureFilter(float leaf_size_x, float leaf_size_y, float leaf_size_z, std::string feature_type, float sample_ratio) {
     SetFeatureParam(feature_type, sample_ratio);
     SetFilterParam(leaf_size_x, leaf_size_y, leaf_size_z);
 }
 
-bool VoxelFeatureFilter::SetFeatureParam(std::string str, float sample_ratio) {
+bool VoxelFeatureFilter::SetFeatureParam(std::string feature_type, float sample_ratio) {
 
     voxel_feature_filter_.setRemainFeature(true);
 
-    if (str == "NormalSpace") 
-    voxel_feature_filter_.setRemainType(pcl::VoxelGridFeature::FeatureFilter::NormalSpace);
-    else if (str == "StatisiticalOutlier") 
-    voxel_feature_filter_.setRemainType(pcl::VoxelGridFeature::FeatureFilter::StatisiticalOutlier);
-    else if (str == "Covariance") 
-    voxel_feature_filter_.setRemainType(pcl::VoxelGridFeature::FeatureFilter::Covariance);
+    if (feature_type == "NormalSpace") 
+    voxel_feature_filter_.setRemainType(pcl::VoxelGridFeature<CloudData::POINT>::FeatureFilter::NormalSpace);
+    else if (feature_type == "StatisiticalOutlier") 
+    voxel_feature_filter_.setRemainType(pcl::VoxelGridFeature<CloudData::POINT>::FeatureFilter::StatisiticalOutlier);
+    else if (feature_type == "Covariance") 
+    voxel_feature_filter_.setRemainType(pcl::VoxelGridFeature<CloudData::POINT>::FeatureFilter::Covariance);
 
     voxel_feature_filter_.setSampleRatio(sample_ratio);
 
     std::cout << "Voxel Filter 的 feature 参数为：" << std::endl
-              << str << ", "
-              << sampl_ratio
+              << feature_type << ", "
+              << sample_ratio
               << std::endl << std::endl;
 
     return true;

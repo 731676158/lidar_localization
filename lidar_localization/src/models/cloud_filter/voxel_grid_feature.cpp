@@ -553,8 +553,8 @@
 
 
 
-#include "voxel_grid_feature.h"
-#include "voxel_grid_feature.hpp"
+#include "lidar_localization/models/cloud_filter/voxel_grid_feature.h"
+#include "lidar_localization/models/cloud_filter/voxel_grid_feature.hpp"
 
 using namespace pcl;
 
